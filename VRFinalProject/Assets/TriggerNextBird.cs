@@ -11,8 +11,9 @@ public class TriggerNextBird : MonoBehaviour
 
     public UkuleleChordRegister _chord;
 
-    public Animation birdOneAnim;
     public GameObject birdTwo;
+
+    public TouchingScriptableObject _Touching;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,11 @@ public class TriggerNextBird : MonoBehaviour
 
     private void CheckStrum(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!noteOneLearned)
+        if (!noteOneLearned && _Touching.isTouching)
         {
             if (_chord.currentClip == _chord.C)
             {
                 noteOneLearned = true;
-                birdOneAnim.Play();
                 birdTwo.GetComponent<Animator>().SetBool("play", true);
             }
         }

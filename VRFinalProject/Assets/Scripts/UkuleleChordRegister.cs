@@ -25,10 +25,10 @@ public class UkuleleChordRegister : MonoBehaviour
     public AudioClip currentClip;
 
     [Header("Which Are Active")] 
-    private bool cActive;
-    private bool eActive;
-    private bool gActive;
-    private bool aActive;
+    public bool cActive;
+    public bool eActive;
+    public bool gActive;
+    public bool aActive;
     
     // Start is called before the first frame update
     void OnEnable()

@@ -11,6 +11,8 @@ public class Strumming : MonoBehaviour
     public AudioSource aud;
 
     public UkuleleChordRegister _chord;
+
+    public TouchingScriptableObject touching;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,15 @@ public class Strumming : MonoBehaviour
 
     private void Strum(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        Debug.Log("strum");
-        aud.PlayOneShot(_chord.currentClip);
+
+        if (touching.isTouching == true)
+        {
+            Debug.Log("strum");
+            aud.PlayOneShot(_chord.currentClip);
+            
+        }
+        
+        
+        
     }
 }
