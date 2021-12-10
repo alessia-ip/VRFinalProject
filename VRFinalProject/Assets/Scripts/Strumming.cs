@@ -16,12 +16,14 @@ public class Strumming : MonoBehaviour
 
     public ParticleSystem notes;
     
+    
     // Start is called before the first frame update
     void Start()
     {
         _actionBasedController.Enable();
 
         _actionBasedController["RightStrum"].performed += Strum;
+        
 
     }
 
@@ -32,11 +34,10 @@ public class Strumming : MonoBehaviour
         {
             Debug.Log("strum");
             aud.PlayOneShot(_chord.currentClip);
-            
+
+            notes.Stop();
+            notes.Play();
         }
-        
-        notes.Stop();
-        notes.Play();
         
     }
 }
