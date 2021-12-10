@@ -13,6 +13,8 @@ public class Strumming : MonoBehaviour
     public UkuleleChordRegister _chord;
 
     public TouchingScriptableObject touching;
+
+    public ParticleSystem notes;
     
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,8 @@ public class Strumming : MonoBehaviour
             
         }
         
-        
+        notes.Stop();
+        notes.Play();
         
     }
 }
