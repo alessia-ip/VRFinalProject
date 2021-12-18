@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class CanvasOpenShut : MonoBehaviour
 {
 
+    //this script it to tackle turning on the 'phone' ui on the player's left hand
+    
     public InputActionAsset _actionBasedController;
 
     public GameObject phone;
@@ -15,6 +17,8 @@ public class CanvasOpenShut : MonoBehaviour
     {
         _actionBasedController.Enable();
 
+        //the button is supposed to be 'a'
+        //but it accepts other buttons too for ease of use
         _actionBasedController["RightTrigger"].performed += ToggleUI;
     }
 

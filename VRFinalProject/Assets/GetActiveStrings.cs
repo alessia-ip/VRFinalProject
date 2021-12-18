@@ -5,6 +5,9 @@ using UnityEngine;
 public class GetActiveStrings : MonoBehaviour
 {
 
+    //this just activates or deactivates the visual string elements on the ukulele
+    //this is so the player knows what strings they are pressing at a glance
+    
     public UkuleleChordRegister _Chord;
 
     public GameObject G;

@@ -30,11 +30,14 @@ public class Strumming : MonoBehaviour
     private void Strum(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
 
+        //if the player's hand is touching the correct section of the ukulele, this works
+        //otherwise, no sound is heard when the player 'strums' with their thumb on the grip
         if (touching.isTouching == true)
         {
             Debug.Log("strum");
             aud.PlayOneShot(_chord.currentClip);
 
+            //we immediately stop the previous clip and play the new one
             notes.Stop();
             notes.Play();
         }

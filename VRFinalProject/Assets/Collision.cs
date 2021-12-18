@@ -7,6 +7,8 @@ public class Collision : MonoBehaviour
 {
     public TouchingScriptableObject touching;
 
+    //checks if the player's hand is in contact with the ukulele strings
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "hand")

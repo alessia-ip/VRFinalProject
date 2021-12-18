@@ -7,6 +7,10 @@ using UnityEngine.InputSystem;
 
 public class TriggerNextBird : MonoBehaviour
 {
+    
+    //this script it for keeping track of which birds have gotten close to the player or not
+    //and which notes the player has actively 'learned'
+
     public bool noteOneLearned;
     public bool noteTwoLearned;
     public bool noteThreeLearned;
@@ -23,6 +27,7 @@ public class TriggerNextBird : MonoBehaviour
 
     public TouchingScriptableObject _Touching;
     
+    //these are for when the player has successfully played every note at least once
     public AudioSource aud;
     public AudioClip success;
     bool flourish = false;
@@ -32,12 +37,14 @@ public class TriggerNextBird : MonoBehaviour
     {
         _actionBasedController.Enable();
 
+        //every time we strum, we check these parameters
         _actionBasedController["RightStrum"].performed += CheckStrum;
 
     }
 
     private void Update()
     {
+        //we only play the success flourish once, on completion
         if (noteFourLearned && noteOneLearned && noteTwoLearned && noteThreeLearned && !flourish)
         {
             flourish = true;
@@ -45,6 +52,8 @@ public class TriggerNextBird : MonoBehaviour
         }
     }
 
+    //this function is for checking if the ukulele is being played
+    //if it is, and the note hasn't be learned/played yet, we mark it as learned
     private void CheckStrum(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (!noteOneLearned && _Touching.isTouching)
@@ -52,6 +61,8 @@ public class TriggerNextBird : MonoBehaviour
             if (_chord.currentClip == _chord.C)
             {
                 noteOneLearned = true;
+                //trigger the new bird's animation so it comes close to the player
+                //we do this for every note where an animation is called
                 birdTwo.GetComponent<Animator>().SetBool("play", true);
             }
         }

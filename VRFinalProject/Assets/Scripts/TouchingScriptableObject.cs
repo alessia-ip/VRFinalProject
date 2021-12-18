@@ -7,5 +7,7 @@ using UnityEngine;
 
 public class TouchingScriptableObject : ScriptableObject
 {
+    //this makes the 'touching' variable accessible to other scripts more easily
+    //since it's a scriptable object
     public bool isTouching = false;
 }

@@ -9,6 +9,7 @@ public class UkuleleChordRegister : MonoBehaviour
 
     public InputActionAsset _actionBasedController;
 
+//all of the playable chords
     [Header("Ukulele Chord Sounds")] 
     public AudioClip A;
     public AudioClip F;
@@ -33,6 +34,7 @@ public class UkuleleChordRegister : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        //this is just enabling all of the possible actions that can be performed
         _actionBasedController.Enable(); 
         
         _actionBasedController["OculusX"].performed += C_String_Activate;
@@ -46,6 +48,7 @@ public class UkuleleChordRegister : MonoBehaviour
         _actionBasedController["OculusTrigger"].canceled += A_String_Deactivate;
     }
 
+    // all of the actions just activate or deactivate one of the strings.
     private void G_String_Activate(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         gActive = true;
